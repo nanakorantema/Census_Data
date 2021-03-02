@@ -23,7 +23,7 @@ ui <- navbarPage(
                          selectInput(
                              "plot_type",
                              "Plot Type",
-                             c("Option A" = "a", "Option B" = "b")
+                             c("Orange County" = "a", "New York County" = "b")
                          )),
                      mainPanel(imageOutput("map"))))),
     tabPanel("Discussion",
@@ -37,15 +37,31 @@ ui <- navbarPage(
              h3("About Me"),
              p("My name is Nana-Korantema Koranteng and I study the Middle East. 
              You can reach me at nanakorantema_koranteng@g.harvard.edu.")))
+
 # Define server logic required to draw a histogram
+
+
 server <- function(input, output) {
+  
   output$map <- renderImage({
-    list(src = 'map.png',
-         width = 500,
-         height = 500,
-         alt = "Map")
-  }, deleteFile = FALSE)
+    if(input$plot_type == "a"){            
+      list(
+        src = "map.png",
+        width = 500,
+        height = 500,
+        alt = "Orange County Map")
+    }                                        
+    else if(input$plot_type == "b"){
+      list(
+        src = "map_2.png",
+        width = 500,
+        height = 500,
+        alt = "New York County Map")
+    }
+  })
 }
+
+
  
 
 
