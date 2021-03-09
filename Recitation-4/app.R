@@ -11,6 +11,7 @@ library(shiny)
 library(tidycensus)
 library(tidyverse)
 library(shinythemes)
+source("Maps.R")
 
 # Define UI for application 
 ui <- navbarPage(
@@ -43,20 +44,12 @@ ui <- navbarPage(
 
 server <- function(input, output) {
   
-  output$map <- renderImage({
+  output$map <- renderPlot({
     if(input$plot_type == "a"){            
-      list(
-        src = "map.png",
-        width = 500,
-        height = 500,
-        alt = "Orange County Map")
+      map
     }                                        
     else if(input$plot_type == "b"){
-      list(
-        src = "map_2.png",
-        width = 500,
-        height = 500,
-        alt = "New York County Map")
+      map_2
     }
   })
 }
