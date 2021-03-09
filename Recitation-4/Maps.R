@@ -27,7 +27,7 @@ library(shinythemes)
       theme_void()
     
 
-ggsave("map.png", map) 
+
 
 racevars <- c(White = "B02001_002", 
               Black = "B02001_003", 
@@ -51,5 +51,5 @@ map_2 <- NY %>%
        caption = "Source: American Community Survey 2014-2018") +
   theme_void()
 
-ggsave("map_2.png", map_2)
+
 

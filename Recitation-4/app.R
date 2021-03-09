@@ -26,7 +26,7 @@ ui <- navbarPage(
                              "Plot Type",
                              c("Orange County" = "a", "New York County" = "b")
                          )),
-                     mainPanel(imageOutput("map"))))),
+                     mainPanel(plotOutput("map"))))),
     tabPanel("Discussion",
              titlePanel("Discussion Title"),
              p("Tour of the modeling choices you made and 
